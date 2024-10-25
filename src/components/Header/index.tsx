@@ -8,7 +8,7 @@ const Header = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="backdrop-brightness-150 shadow-md">
+    <header className="sticky top-0 left-0 backdrop-brightness-150 backdrop-blur-lg shadow-md">
       <div className="max-w-7xl mx-auto flex items-stretch justify-between">
         <Link
           to="/"
@@ -27,15 +27,6 @@ const Header = () => {
             }}
           >
             لیست بازارها
-          </Link>
-          <Link
-            to="/orders"
-            className="text-gray-600 px-4 py-4"
-            activeProps={{
-              className: 'text-green-700',
-            }}
-          >
-            سفارشات
           </Link>
         </nav>
 

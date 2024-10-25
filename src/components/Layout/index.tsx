@@ -9,7 +9,7 @@ export default function Layout({ className, children }: LayoutProps) {
   return (
     <div
       className={cn(
-        'flex-col justify-start items-stretch w-full h-full mx-auto',
+        'flex-col justify-start items-stretch w-full h-full mx-auto overflow-y-auto',
         className
       )}
     >

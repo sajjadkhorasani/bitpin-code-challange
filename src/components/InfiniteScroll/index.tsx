@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import { IntersectionOptions, useInView } from 'react-intersection-observer';
 
 import { cn } from '@utils';
@@ -8,7 +8,7 @@ interface InfiniteScrollProps<T> extends IntersectionOptions {
   results: T[];
   size?: number;
   className?: string;
-  children: (item: T) => JSX.Element;
+  children: (item: T, index: number) => JSX.Element;
 }
 
 export default function InfiniteScroll<T>({
@@ -48,7 +48,7 @@ export default function InfiniteScroll<T>({
             'mt-4 border rounded-lg shadow p-4 w-full mx-auto animate-pulse'
           }
         >
-          <div className="h-20 bg-gray-200 rounded-lg"></div>
+          <div className="h-12 bg-gray-200 rounded-lg"></div>
         </div>
       )}
     </div>

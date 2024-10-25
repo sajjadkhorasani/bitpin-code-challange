@@ -16,10 +16,11 @@ interface ListProps
     | 'observeElementRect'
     | 'scrollToFn'
   > {
+  className?: string;
   children: (row: VirtualItem) => React.ReactNode;
 }
 
-export default function List({ children, ...options }: ListProps) {
+export default function List({ className, children, ...options }: ListProps) {
   const parentRef = useRef<HTMLDivElement>(null);
 
   const virtualizer = useVirtualizer({
@@ -31,9 +32,11 @@ export default function List({ children, ...options }: ListProps) {
   return (
     <div
       ref={parentRef}
-      className={cn('h-full max-w-full py-4 px-2 overflow-auto')}
+      className={cn('h-full max-w-full py-4 px-2 overflow-auto', className)}
     >
-      <div className={cn(`relative w-full h-[${virtualizer.getTotalSize()}]`)}>
+      <div
+        className={cn(`relative w-full h-[${virtualizer.getTotalSize()}px]`)}
+      >
         {virtualizer.getVirtualItems().map(children)}
       </div>
     </div>

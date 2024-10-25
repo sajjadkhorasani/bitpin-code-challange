@@ -34,14 +34,11 @@ export default function Tabs<T extends TabProps>({
         <Button
           key={index}
           onClick={onTabChangeHandler(index)}
-          className={cn(
-            'bg-transparent grow px-8 py-2 rounded-sm hover:bg-transparent',
-            {
-              'bg-green-400': index === activeTab,
-              'text-gray-600 border-b border-b-gray-300 dark:border-b-gray-700':
-                index !== activeTab,
-            }
-          )}
+          className={cn('bg-transparent grow px-8 py-2 rounded-sm', {
+            'bg-green-400': index === activeTab,
+            'text-gray-600 border-b border-b-gray-300 dark:border-b-gray-700':
+              index !== activeTab,
+          })}
         >
           {tab?.props?.title}
         </Button>
