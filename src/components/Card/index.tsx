@@ -1,15 +1,16 @@
 import { Fragment } from 'react';
 import { Decimal } from 'decimal.js';
-import { Link, LinkProps } from '@tanstack/react-router';
+import { Link, type LinkProps } from '@tanstack/react-router';
 
 import { cn } from '@utils';
-import { Market } from '@types';
+import { type Market } from '@types';
 import Image from '@components/Image';
 
-interface CardProps extends LinkProps {
+interface CardProps extends Omit<LinkProps, 'style'> {
   className?: string;
   market: Market;
   onlyLogo?: boolean;
+  style?: React.CSSProperties;
 }
 
 export default function Card({

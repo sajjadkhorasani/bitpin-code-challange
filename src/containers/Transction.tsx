@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 import { Button, List, OrderCard } from '@components';
 import { useAxiosQuery } from '@hooks';
-import { Transaction } from '@types';
+import type { Transaction } from '@types';
 
 export default function TransactionContainer() {
   const { marketId } = useParams({

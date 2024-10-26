@@ -1,5 +1,8 @@
 import { useMemo } from 'react';
-import { IntersectionOptions, useInView } from 'react-intersection-observer';
+import {
+  type IntersectionOptions,
+  useInView,
+} from 'react-intersection-observer';
 
 import { cn } from '@utils';
 import { usePagination } from '@hooks';

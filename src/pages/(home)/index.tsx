@@ -2,8 +2,8 @@ import { useMemo, useState } from 'react';
 import { createFileRoute } from '@tanstack/react-router';
 
 import { useAxiosQuery } from '@hooks';
-import { MarketResponse } from '@types';
-import { Tab, Tabs, InfiniteScroll, Button, Card } from '@components';
+import { type MarketResponse } from '@types';
+import { Tab, Tabs, Button, Card, ListWithPagination } from '@components';
 
 export const Route = createFileRoute('/(home)/')({
   component: Home,
@@ -63,34 +63,64 @@ function Home() {
       onTabChange={(tab) => setActiveTab(tab as TabType)}
     >
       <Tab title="تتر">
-        <InfiniteScroll className="max-h-[80vh] py-4" results={results.tether}>
-          {(item) => (
-            <Card
-              key={item.id}
-              className="mt-4"
-              market={item}
-              to="/orders/$marketId"
-              params={{
-                marketId: item.id.toString(),
-              }}
-            />
-          )}
-        </InfiniteScroll>
+        <ListWithPagination
+          className="max-h-[75vh] py-4"
+          estimateSize={() => 100}
+          results={results.tether}
+        >
+          {(item) => {
+            const market = results.tether[item.index];
+            return (
+              <Card
+                key={market.id}
+                className="mt-4"
+                market={market}
+                to="/orders/$marketId"
+                params={{
+                  marketId: market.id.toString(),
+                }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: `${item.size}px`,
+                  transform: `translateY(${item.start}px)`,
+                }}
+              />
+            );
+          }}
+        </ListWithPagination>
       </Tab>
       <Tab title="تومان">
-        <InfiniteScroll className="max-h-[80vh] py-4" results={results.toman}>
-          {(item) => (
-            <Card
-              key={item.id}
-              className="mt-4"
-              market={item}
-              to="/orders/$marketId"
-              params={{
-                marketId: item.id.toString(),
-              }}
-            />
-          )}
-        </InfiniteScroll>
+        <ListWithPagination
+          className="max-h-[75vh] py-4"
+          estimateSize={() => 100}
+          results={results.toman}
+        >
+          {(item) => {
+            const market = results.toman[item.index];
+            return (
+              <Card
+                key={market.id}
+                className="mt-4"
+                market={market}
+                to="/orders/$marketId"
+                params={{
+                  marketId: market.id.toString(),
+                }}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: `${item.size}px`,
+                  transform: `translateY(${item.start}px)`,
+                }}
+              />
+            );
+          }}
+        </ListWithPagination>
       </Tab>
     </Tabs>
   );

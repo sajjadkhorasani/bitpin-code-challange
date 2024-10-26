@@ -9,7 +9,11 @@ function Tab(
   ref: React.Ref<HTMLDivElement>
 ) {
   return (
-    <div ref={ref} className="w-full flex-shrink-0 snap-center" {...props}>
+    <div
+      ref={ref}
+      className="relative w-full flex-shrink-0 snap-center"
+      {...props}
+    >
       {children}
     </div>
   );

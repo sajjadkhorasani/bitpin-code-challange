@@ -3,7 +3,7 @@ import { useParams } from '@tanstack/react-router';
 import { useInView } from 'react-intersection-observer';
 
 import { useAxiosQuery } from '@hooks';
-import { OrderResponse } from '@types';
+import type { OrderResponse } from '@types';
 import { Button, Input, List, OrderCard } from '@components';
 import { calcTotalAttr } from '@utils';
 

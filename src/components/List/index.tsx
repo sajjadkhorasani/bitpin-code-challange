@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import {
-  PartialKeys,
+  type PartialKeys,
   useVirtualizer,
-  VirtualItem,
-  VirtualizerOptions,
+  type VirtualItem,
+  type VirtualizerOptions,
 } from '@tanstack/react-virtual';
 
 import { cn } from '@utils';
@@ -35,7 +35,8 @@ export default function List({ className, children, ...options }: ListProps) {
       className={cn('h-full max-w-full py-4 px-2 overflow-auto', className)}
     >
       <div
-        className={cn(`relative w-full h-[${virtualizer.getTotalSize()}px]`)}
+        className={cn(`relative w-full`)}
+        style={{ height: `${virtualizer.getTotalSize()}px` }}
       >
         {virtualizer.getVirtualItems().map(children)}
       </div>
