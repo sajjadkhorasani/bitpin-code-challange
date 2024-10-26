@@ -48,27 +48,21 @@ This project was developed as a coding challenge for Bitpin, a cryptocurrency ex
 
 ---
 
-## Pros and Cons
+## Summary
 
-### Pros
+These libraries and tools work together to create a high-performance, responsive, and scalable application. Here’s a quick summary of each utility’s role:
 
-- **Efficient Data Management**: With `@tanstack/react-query`, data is cached, reducing redundant requests and ensuring a fast user experience.
-- **Optimized Rendering**: Virtualization with `@tanstack/react-virtual` decreases the rendering load, improving performance with large datasets.
-- **Accurate Calculations**: `decimal.js` handles precise decimal arithmetic, ensuring accuracy in currency values.
-- **Clean and Modular Routing**: `@tanstack/react-router` offers a flexible routing solution, making the app structure intuitive and maintainable.
-- **Scalability**: The stack and modular structure make it easy to expand functionality or add more features in the future.
+| Library              | Purpose                                   | Key Benefits                                           |
+| -------------------- | ----------------------------------------- | ------------------------------------------------------ |
+| **React Query**      | Data fetching and caching                 | Caches data, reduces API calls, keeps UI in sync       |
+| **Axios**            | HTTP requests                             | Efficient API requests with structured error handling  |
+| **Tanstack Router**  | Client-side routing                       | Type-safe, modular routing; file-based for ease of use |
+| **es-toolkit**       | Utility functions (alternative to Lodash) | Lightweight, tree-shakable functions                   |
+| **Tanstack Virtual** | Virtualized list rendering                | Optimized performance for large lists                  |
+| **react-swipeable**  | Swipeable tab functionality               | Mobile-friendly, touch-based tab navigation            |
 
-### Cons
-
-- **Learning Curve**: `@tanstack` libraries have a learning curve for developers unfamiliar with advanced React and TypeScript features.
-- **Bundle Size**: Each library adds to the bundle size, which can impact performance if not managed properly.
-- **Additional Configuration**: Tools like `axios` and `decimal.js` require setup and customization for efficient usage, which could lead to increased development time.
-
----
-
-## Additional Notes
-
-- **Testing**: Consider adding unit and integration tests for critical utilities and components.
-- **Future Improvements**: As the app grows, consider lazy loading or code splitting to further optimize performance.
+By leveraging these utilities, the application achieves efficient data handling, smooth navigation, and a streamlined user experience optimized for both desktop and mobile users.
 
 ---
+
+This documentation provides a foundational understanding of the utilities used and can be expanded as the project grows or evolves.
