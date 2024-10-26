@@ -1,4 +1,5 @@
 import React, { Children, useCallback, useMemo } from 'react';
+import { useSwipeable } from 'react-swipeable';
 
 import { cn } from '@utils';
 import Button from '@components/Button';
@@ -20,6 +21,15 @@ export default function Tabs<T extends TabProps>({
   activeTab,
   onTabChange,
 }: TabsProps<T>) {
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      onTabChange(activeTab + 1);
+    },
+    onSwipedRight: () => {
+      onTabChange(activeTab - 1);
+    },
+  });
+
   const onTabChangeHandler = useCallback(
     (index: number) => (e: React.MouseEvent<HTMLButtonElement>) => {
       e.preventDefault();
@@ -47,7 +57,10 @@ export default function Tabs<T extends TabProps>({
   }, [activeTab, children, onTabChangeHandler]);
 
   return (
-    <div className={cn('relative w-full mt-4 overflow-hidden', className)}>
+    <div
+      className={cn('relative w-full mt-4 overflow-hidden', className)}
+      {...handlers}
+    >
       <div className="flex">{render}</div>
       <div
         className={cn(
