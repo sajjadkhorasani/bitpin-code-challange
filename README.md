@@ -1,50 +1,74 @@
-# React + TypeScript + Vite
+## Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was developed as a coding challenge for Bitpin, a cryptocurrency exchange platform. It is designed to be efficient, scalable, and easy to extend. The project uses several modern libraries and tools to ensure responsive and performant handling of API data, UI updates, and calculations.
 
-Currently, two official plugins are available:
+## Libraries and Utilities
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1. **@tanstack/react-query**
 
-## Expanding the ESLint configuration
+- **Usage**: Manages server state and data fetching throughout the application.
+- **Benefits**: Simplifies server data synchronization, caching, and background refetching, ensuring data consistency and improving performance.
+- **Key Functions**: `useQuery`, `useMutation`, `useQueryClient`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 2. **@tanstack/react-router**
 
-- Configure the top-level `parserOptions` property like this:
+- **Usage**: Handles routing within the application with a focus on client-side navigation.
+- **Benefits**: Offers type-safe, modular, and data-driven routing with built-in support for code splitting.
+- **Key Functions**: `createReactRouter`, `useNavigate`, `useParams`
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 3. **@tanstack/react-virtual**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Usage**: Implements virtualization for efficient rendering of long lists.
+- **Benefits**: Reduces rendering overhead for large datasets, optimizing the DOM and improving user experience.
+- **Key Functions**: `useVirtual`
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 4. **axios**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **Usage**: API requests and error handling.
+- **Benefits**: Simplifies HTTP requests and response management, with support for interceptors and custom headers.
+- **Key Functions**: `axios.create`, `axios.get`, `axios.post`
+
+### 5. **decimal.js**
+
+- **Usage**: Handles precise decimal and financial calculations.
+- **Benefits**: Eliminates floating-point errors and ensures accuracy in financial computations.
+- **Key Functions**: `Decimal.add`, `Decimal.div`, `Decimal.times`
+
+### 6. **es-toolkit**
+
+- **Usage**: Provides utility functions for managing, transforming, and validating data.
+- **Benefits**: Helps maintain clean and reusable code through standardized utilities.
+- **Key Functions**: Various utility functions as per requirements.
+
+### 7. **react-intersection-observer**
+
+- **Usage**: Implements infinite scroll functionality.
+- **Benefits**: Enhances UX by loading more data only when the user reaches the bottom, conserving resources.
+- **Key Functions**: `useInView`
+
+---
+
+## Pros and Cons
+
+### Pros
+
+- **Efficient Data Management**: With `@tanstack/react-query`, data is cached, reducing redundant requests and ensuring a fast user experience.
+- **Optimized Rendering**: Virtualization with `@tanstack/react-virtual` decreases the rendering load, improving performance with large datasets.
+- **Accurate Calculations**: `decimal.js` handles precise decimal arithmetic, ensuring accuracy in currency values.
+- **Clean and Modular Routing**: `@tanstack/react-router` offers a flexible routing solution, making the app structure intuitive and maintainable.
+- **Scalability**: The stack and modular structure make it easy to expand functionality or add more features in the future.
+
+### Cons
+
+- **Learning Curve**: `@tanstack` libraries have a learning curve for developers unfamiliar with advanced React and TypeScript features.
+- **Bundle Size**: Each library adds to the bundle size, which can impact performance if not managed properly.
+- **Additional Configuration**: Tools like `axios` and `decimal.js` require setup and customization for efficient usage, which could lead to increased development time.
+
+---
+
+## Additional Notes
+
+- **Testing**: Consider adding unit and integration tests for critical utilities and components.
+- **Future Improvements**: As the app grows, consider lazy loading or code splitting to further optimize performance.
+
+---
