@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 
-import { Tab, Tabs } from '@components';
+import { Tabs, Tab } from '@components';
 import { OrderBuy, OrderContainer, Transction, OrderSell } from '@containers';
 
 export const Route = createFileRoute('/orders/$marketId/')({
@@ -32,7 +32,7 @@ function OrderMarketPage() {
     <OrderContainer>
       <Tabs
         activeTab={TabType[type as keyof typeof TabType]}
-        onTabChange={(tab) =>
+        onTabChange={(tab: number) =>
           navigate({
             to: '/orders/$marketId',
             params: { marketId },

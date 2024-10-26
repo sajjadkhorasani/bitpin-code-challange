@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useState } from 'react';
+import { ForwardedRef, forwardRef } from 'react';
 
 import { useInView } from 'react-intersection-observer';
 

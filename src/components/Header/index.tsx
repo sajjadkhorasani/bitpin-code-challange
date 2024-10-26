@@ -1,8 +1,8 @@
 import { Link } from '@tanstack/react-router';
 import { MoonIcon, SunIcon } from '@heroicons/react/16/solid';
 
-import { Image } from '@components';
 import { useTheme } from '@contexts';
+import Image from '@components/Image';
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();

@@ -1,10 +1,10 @@
-import { Link, LinkProps } from '@tanstack/react-router';
+import { Fragment } from 'react';
 import { Decimal } from 'decimal.js';
+import { Link, LinkProps } from '@tanstack/react-router';
 
 import { cn } from '@utils';
 import { Market } from '@types';
-import { Image } from '@components';
-import { Fragment, useMemo } from 'react';
+import Image from '@components/Image';
 
 interface CardProps extends LinkProps {
   className?: string;

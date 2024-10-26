@@ -1,13 +1,6 @@
 import { Outlet, createRootRoute, useRouter } from '@tanstack/react-router';
 
-import {
-  Button,
-  Container,
-  Header,
-  Layout,
-  QueryDevTools,
-  RouterDevTools,
-} from '@components';
+import { Button, Container, Header, Layout } from '@components';
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -21,8 +14,6 @@ function RootComponent() {
       <Header />
       <Container className="py-8">
         <Outlet />
-        <QueryDevTools />
-        <RouterDevTools />
       </Container>
     </Layout>
   );

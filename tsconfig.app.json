@@ -1,22 +1,25 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "jsx": "react-jsx",
+    "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable", "WebWorker", "ESNext"],
     "module": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "WebWorker", "ESNext"],
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@*": ["src/*"]
     },
 
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
+    "esModuleInterop": true,
     "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
     "isolatedModules": true,
-    "moduleDetection": "force",
     "noEmit": true,
-    "jsx": "react-jsx",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
 
     /* Linting */
     "strict": true,
@@ -24,5 +27,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "global.d.ts", "src/router.d.ts"]
+  "include": ["src", "global.d.ts"],
+  "exclude": ["node_modules", "dist"]
 }

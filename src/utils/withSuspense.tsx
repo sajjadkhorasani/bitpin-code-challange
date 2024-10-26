@@ -1,6 +1,6 @@
 import { Fragment, Suspense } from 'react';
 
-export default function withSuspense<T extends JSX.IntrinsicAttributes>(
+export function withSuspense<T extends JSX.IntrinsicAttributes>(
   Component: React.ComponentType<T>,
   fallback: React.ReactNode = <Fragment />
 ) {

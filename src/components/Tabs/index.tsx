@@ -1,7 +1,7 @@
 import React, { Children, useCallback, useMemo } from 'react';
 
 import { cn } from '@utils';
-import { Button } from '@components';
+import Button from '@components/Button';
 
 interface TabProps {
   title: string | React.ReactNode;
